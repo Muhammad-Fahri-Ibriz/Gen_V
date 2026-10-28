@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Peminjaman Buku Perpustakaan</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #eef2f7;
+      margin: 0;
+      padding: 24px 16px;
+      color: #222;
+    }
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 28px 32px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .1);
+    }
+    h1 { text-align: center; margin: 0 0 4px; font-size: 1.5rem; color: #1e3a5f; }
+    .subtitle { text-align: center; margin: 0 0 24px; color: #666; font-size: .9rem; }
+    .form-group { margin-bottom: 18px; }
+    label.title, .group-label { display: block; font-weight: bold; margin-bottom: 6px; }
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    input[type="text"]:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #1e6bd6;
+      box-shadow: 0 0 0 3px rgba(30, 107, 214, .15);
+    }
+    .option { display: inline-block; margin-right: 18px; margin-bottom: 4px; }
+    .option input { margin-right: 5px; }
+    .buttons { display: flex; gap: 10px; margin-top: 24px; }
+    button {
+      flex: 1;
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #fff;
+    }
+    button[type="submit"] { background: #1e6bd6; }
+    button[type="submit"]:hover { background: #1555ab; }
+    button[type="reset"] { background: #777; }
+    button[type="reset"]:hover { background: #5c5c5c; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Form Peminjaman Buku</h1>
+    <p class="subtitle">Perpustakaan Sekolah / Umum</p>
+
+    <form action="#" method="post">
+
+      <!-- Input type text -->
+      <div class="form-group">
+        <label class="title" for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+      </div>
+
+      <div class="form-group">
+        <label class="title" for="nim">Nomor Anggota / NIS / NIM</label>
+        <input type="text" id="nim" name="nim" placeholder="Contoh: 2026001234" required>
+      </div>
+
+      <div class="form-group">
+        <label class="title" for="judul">Judul Buku</label>
+        <input type="text" id="judul" name="judul" placeholder="Masukkan judul buku yang dipinjam" required>
+      </div>
+
+      <!-- Input type radio -->
+      <div class="form-group">
+        <span class="group-label">Jenis Kelamin</span>
+        <label class="option"><input type="radio" name="gender" value="Laki-laki" required> Laki-laki</label>
+        <label class="option"><input type="radio" name="gender" value="Perempuan"> Perempuan</label>
+      </div>
+
+      <!-- Select -->
+      <div class="form-group">
+        <label class="title" for="kategori">Kategori Buku</label>
+        <select id="kategori" name="kategori" required>
+          <option value="">-- Pilih Kategori --</option>
+          <option value="Pelajaran">Buku Pelajaran</option>
+          <option value="Novel">Novel / Fiksi</option>
+          <option value="Sains">Sains &amp; Teknologi</option>
+          <option value="Sejarah">Sejarah &amp; Budaya</option>
+          <option value="Referensi">Referensi / Kamus</option>
+          <option value="Lainnya">Lainnya</option>
+        </select>
+      </div>
+
+      <!-- Select lama peminjaman -->
+      <div class="form-group">
+        <label class="title" for="durasi">Lama Peminjaman</label>
+        <select id="durasi" name="durasi" required>
+          <option value="">-- Pilih Durasi --</option>
+          <option value="3">3 Hari</option>
+          <option value="7">7 Hari</option>
+          <option value="14">14 Hari</option>
+        </select>
+      </div>
+
+      <!-- Radio kondisi buku -->
+      <div class="form-group">
+        <span class="group-label">Kondisi Buku Saat Dipinjam</span>
+        <label class="option"><input type="radio" name="kondisi" value="Baik" required> Baik</label>
+        <label class="option"><input type="radio" name="kondisi" value="Cukup"> Cukup</label>
+        <label class="option"><input type="radio" name="kondisi" value="Rusak Ringan"> Rusak Ringan</label>
+        <label class="option"><input type="radio" name="kondisi" value="Rusak Berat"> Rusak Berat</label>
+      </div>
+
+      <!-- Checkbox -->
+      <div class="form-group">
+        <span class="group-label">Persetujuan Peraturan</span>
+        <label class="option"><input type="checkbox" name="setuju[]" value="kembali" required> Saya akan mengembalikan buku tepat waktu</label><br>
+        <label class="option"><input type="checkbox" name="setuju[]" value="jaga" required> Saya akan menjaga buku dengan baik</label><br>
+        <label class="option"><input type="checkbox" name="setuju[]" value="denda" required> Saya bersedia membayar denda jika terlambat / merusak buku</label>
+      </div>
+
+      <!-- Textarea -->
+      <div class="form-group">
+        <label class="title" for="catatan">Catatan Tambahan</label>
+        <textarea id="catatan" name="catatan" rows="4" placeholder="Tuliskan keperluan atau catatan lain (opsional)"></textarea>
+      </div>
+
+      <!-- Button -->
+      <div class="buttons">
+        <button type="submit">Pinjam Buku</button>
+        <button type="reset">Reset</button>
+      </div>
+
+    </form>
+  </div>
+</body>
+</html>
