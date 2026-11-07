@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Halaman informasi PeTIK Jombang.">
+  <title>PeTIK Jombang | Landing Page</title>
+
+  <style>
+    :root {
+      --primary: #3949ab;
+      --primary-dark: #283593;
+      --accent: #ffb74d;
+      --white: #ffffff;
+      --ink: #20252a;
+      --muted: #56636a;
+      --pale: #eef0ff;
+      --shadow: 0 12px 30px rgba(0, 54, 68, .12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 22px;
+      background: #e9eaf6;
+      color: var(--ink);
+      font-family: "Times New Roman", Times, serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-shell {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      overflow: hidden;
+      background: var(--white);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      animation: page-enter .75s ease both;
+    }
+
+    /* HEADER */
+    .site-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 24px 30px 18px;
+      color: var(--white);
+      background: var(--primary);
+      text-align: center;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 76px;
+      height: 76px;
+      place-items: center;
+      border: 3px solid var(--accent);
+      border-radius: 50%;
+      color: var(--accent);
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    .brand-name {
+      display: block;
+      font-size: 25px;
+      font-weight: bold;
+      line-height: 1.05;
+    }
+
+    .brand-caption {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px;
+      letter-spacing: .5px;
+    }
+
+    .main-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .main-nav a {
+      padding: 8px 12px;
+      border-radius: 20px;
+      color: var(--white);
+      text-decoration: none;
+      transition: .25s;
+    }
+
+    .main-nav a:hover,
+    .main-nav a:focus-visible {
+      color: var(--ink);
+      background: var(--accent);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    /* TATA LETAK */
+    .page-layout {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr) 170px;
+      align-items: stretch;
+    }
+
+    .sidebar {
+      padding: 24px 16px;
+      background: var(--accent);
+    }
+
+    .sidebar-title {
+      margin-bottom: 12px;
+      font-size: 19px;
+      line-height: 1.2;
+    }
+
+    .left-sidebar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .placeholder-art {
+      display: grid;
+      width: 104px;
+      height: 104px;
+      margin-bottom: 16px;
+      place-items: center;
+      border: 2px dashed rgba(32, 37, 42, .55);
+      border-radius: 22px;
+      font-size: 45px;
+      animation: gentle-float 3.5s ease-in-out infinite;
+    }
+
+    .sidebar-note {
+      font-size: 14px;
+    }
+
+    .right-sidebar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 9px;
+    }
+
+    .side-link {
+      display: block;
+      padding: 9px 10px;
+      border-radius: 8px;
+      color: var(--ink);
+      text-decoration: none;
+      transition: .2s;
+    }
+
+    .side-link:hover,
+    .side-link:focus-visible {
+      color: var(--white);
+      background: var(--primary-dark);
+      transform: translateX(-3px);
+      outline: none;
+    }
+
+    /* KONTEN UTAMA */
+    .content {
+      min-width: 0;
+      padding: 34px clamp(20px, 4vw, 44px);
+      background: var(--white);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      color: var(--primary-dark);
+      background: var(--pale);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .hero-title {
+      max-width: 680px;
+      margin-bottom: 14px;
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.08;
+      animation: slide-up .7s .1s both;
+    }
+
+    .hero-title span {
+      color: var(--primary-dark);
+    }
+
+    .lead {
+      max-width: 690px;
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-size: 18px;
+      animation: slide-up .7s .2s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0 34px;
+      animation: slide-up .7s .3s both;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 17px;
+      border: 2px solid var(--primary);
+      border-radius: 7px;
+      color: var(--white);
+      background: var(--primary);
+      text-decoration: none;
+      transition: .2s;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      color: var(--primary-dark);
+      background: var(--white);
+      transform: translateY(-3px);
+      outline: none;
+    }
+
+    .button-secondary {
+      color: var(--primary-dark);
+      background: var(--white);
+    }
+
+    .section {
+      padding-top: 26px;
+      margin-top: 26px;
+      border-top: 1px solid #dce8ea;
+      scroll-margin-top: 20px;
+    }
+
+    .section-title {
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+      font-size: 25px;
+    }
+
+    .section-text {
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+
+    .notice {
+      margin-top: 16px;
+      padding: 13px 15px;
+      border-left: 4px solid var(--primary);
+      border-radius: 5px;
+      background: var(--pale);
+      color: #33454b;
+      font-size: 14px;
+    }
+
+    /* KARTU PROGRAM */
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+      margin-top: 17px;
+    }
+
+    .program-card {
+      padding: 17px;
+      border: 1px solid #d8ebee;
+      border-top: 4px solid var(--primary);
+      border-radius: 10px;
+      background: #f8fcfc;
+      transition: .25s;
+    }
+
+    .program-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 9px 20px rgba(0, 54, 68, .1);
+      transform: translateY(-5px);
+    }
+
+    .program-icon {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 25px;
+    }
+
+    .program-card h3 {
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    .program-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* KONTAK DAN FOOTER */
+    .contact-panel {
+      padding: 18px;
+      border-radius: 10px;
+      background: var(--pale);
+    }
+
+    .site-footer {
+      padding: 20px;
+      color: var(--white);
+      background: var(--primary);
+      text-align: center;
+    }
+
+    .site-footer p + p {
+      margin-top: 4px;
+    }
+
+    .site-footer strong {
+      color: var(--accent);
+    }
+
+    /* ANIMASI */
+    @keyframes page-enter {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slide-up {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes gentle-float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 850px) {
+      body {
+        padding: 12px;
+      }
+
+      .page-layout {
+        grid-template-columns: 150px minmax(0, 1fr);
+      }
+
+      .right-sidebar {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 13px;
+      }
+
+      .side-link:hover,
+      .side-link:focus-visible {
+        transform: translateY(-2px);
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 0;
+        background: var(--white);
+      }
+
+      .site-shell {
+        border-radius: 0;
+      }
+
+      .site-header {
+        padding: 20px 16px;
+      }
+
+      .main-nav {
+        justify-content: center;
+        gap: 4px;
+      }
+
+      .main-nav a {
+        padding: 7px 9px;
+        font-size: 15px;
+      }
+
+      .page-layout {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .content {
+        order: 1;
+        padding: 27px 20px;
+      }
+
+      .left-sidebar {
+        order: 2;
+        min-height: 170px;
+      }
+
+      .right-sidebar {
+        order: 3;
+      }
+
+      .program-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        font-size: 32px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site-shell">
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <a class="brand" href="#beranda"
+         aria-label="PeTIK Jombang, kembali ke beranda">
+        <span class="brand-mark" aria-hidden="true">∞</span>
+        <span>
+          <span class="brand-name">PeTIK Jombang</span>
+          <span class="brand-caption">Halaman Informasi</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigasi utama">
+        <a href="#tentang">About</a>
+        <a href="#artikel">Artikel</a>
+        <a href="#program">Program</a>
+        <a href="#kontak">Contact</a>
+      </nav>
+    </header>
+
+    <div class="page-layout">
+
+      <!-- SIDEBAR KIRI -->
+      <aside class="sidebar left-sidebar">
+        <div class="placeholder-art" aria-hidden="true">📱</div>
+        <h2 class="sidebar-title">Area Banner</h2>
+        <p class="sidebar-note">
+          Ganti bagian ini dengan foto kegiatan, ilustrasi,
+          atau informasi resmi.
+        </p>
+      </aside>
+
+      <!-- KONTEN UTAMA -->
+      <main class="content" id="beranda">
+        <span class="eyebrow">Selamat datang</span>
+
+        <h1 class="hero-title">
+          Mengenal <span>PeTIK Jombang</span>
+        </h1>
+
+        <p class="lead">
+          Ruang informasi untuk mengenal kegiatan, pembelajaran,
+          dan pengembangan keterampilan teknologi informasi.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button" href="#tentang">Tentang PeTIK</a>
+          <a class="button button-secondary" href="#pendaftaran">
+            Informasi Pendaftaran
+          </a>
+        </div>
+
+        <!-- TENTANG -->
+        <section class="section" id="tentang">
+          <h2 class="section-title">Tentang PeTIK Jombang</h2>
+
+          <p class="section-text">
+            Halaman ini disiapkan sebagai media pengenalan PeTIK Jombang.
+            Melalui halaman ini, pengunjung dapat memperoleh informasi
+            mengenai profil lembaga, kegiatan pembelajaran, program,
+            dan informasi lain yang telah dikonfirmasi oleh pengelola.
+          </p>
+
+          <p class="section-text">
+            Tambahkan deskripsi resmi PeTIK Jombang pada bagian ini,
+            misalnya sejarah singkat, tujuan pendidikan, visi, misi,
+            alamat, serta informasi penyelenggara. Pastikan seluruh
+            keterangan sesuai dengan sumber resmi.
+          </p>
+
+          <div class="notice">
+            <strong>Catatan pengelola:</strong>
+            paragraf profil ini masih berupa teks pengantar.
+            Ganti dengan profil resmi sebelum website dipublikasikan.
+          </div>
+        </section>
+
+        <!-- PROGRAM -->
+        <section class="section" id="program">
+          <h2 class="section-title">Program Pembelajaran</h2>
+
+          <p>
+            Berikut contoh kartu topik yang dapat digunakan untuk
+            menampilkan program. Sesuaikan nama dan deskripsinya
+            dengan kurikulum atau program resmi PeTIK Jombang.
+          </p>
+
+          <div class="program-grid">
+
+            <article class="program-card">
+              <span class="program-icon">💻</span>
+              <h3>Pemrograman Web</h3>
+              <p>Contoh topik: HTML, CSS, dan JavaScript.</p>
+            </article>
+
+            <article class="program-card">
+              <span class="program-icon">🎨</span>
+              <h3>Desain UI/UX</h3>
+              <p>Contoh topik: rancangan antarmuka dan pengalaman pengguna.</p>
+            </article>
+
+            <article class="program-card">
+              <span class="program-icon">🗄️</span>
+              <h3>Basis Data</h3>
+              <p>Contoh topik: konsep dan pengelolaan basis data.</p>
+            </article>
+
+            <article class="program-card">
+              <span class="program-icon">🌐</span>
+              <h3>Jaringan Komputer</h3>
+              <p>Contoh topik: dasar jaringan dan konektivitas.</p>
+            </article>
+
+          </div>
+
+          <div class="notice">
+            <strong>Perlu konfirmasi:</strong>
+            empat kartu di atas hanyalah contoh kategori materi,
+            bukan pernyataan bahwa semuanya merupakan program resmi.
+          </div>
+        </section>
+
+        <!-- ARTIKEL -->
+        <section class="section" id="artikel">
+          <h2 class="section-title">Artikel dan Kegiatan</h2>
+
+          <p class="section-text">
+            Gunakan bagian ini untuk menerbitkan berita, dokumentasi
+            kegiatan, karya peserta didik, atau pengumuman yang sudah
+            diverifikasi. Tambahkan tanggal, foto, dan sumber informasi
+            pada setiap artikel.
+          </p>
+        </section>
+
+        <!-- PENDAFTARAN -->
+        <section class="section" id="pendaftaran">
+          <h2 class="section-title">Informasi Pendaftaran</h2>
+
+          <p class="section-text">
+            Informasi jadwal, persyaratan, dan alur pendaftaran belum
+            dicantumkan karena perlu menggunakan pengumuman resmi.
+            Tambahkan tautan pendaftaran yang benar setelah tersedia.
+          </p>
+
+          <a class="button" href="#kontak">Lihat Informasi Kontak</a>
+        </section>
+
+        <!-- KONTAK -->
+        <section class="section" id="kontak">
+          <h2 class="section-title">Kontak</h2>
+
+          <div class="contact-panel">
+            <p><strong>Alamat:</strong> [Tambahkan alamat resmi]</p>
+            <p><strong>Email:</strong> [Tambahkan email resmi]</p>
+            <p><strong>Telepon/WhatsApp:</strong> [Tambahkan nomor resmi]</p>
+            <p><strong>Website/Media sosial:</strong> [Tambahkan tautan resmi]</p>
+          </div>
+        </section>
+      </main>
+
+      <!-- SIDEBAR KANAN -->
+      <aside class="sidebar right-sidebar" aria-label="Navigasi halaman">
+        <h2 class="sidebar-title">Menu</h2>
+        <a class="side-link" href="#beranda">Beranda</a>
+        <a class="side-link" href="#tentang">Profil</a>
+        <a class="side-link" href="#program">Program</a>
+        <a class="side-link" href="#artikel">Artikel</a>
+        <a class="side-link" href="#pendaftaran">Pendaftaran</a>
+        <a class="side-link" href="#kontak">Kontak</a>
+      </aside>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>Dikembangkan oleh <strong>Muhammad Fahri Ibriz</strong></p>
+      <p>Copyright &copy; 2026 PeTIK Jombang. Hak cipta dilindungi.</p>
+      <p>Template landing page — sesuaikan dengan identitas resmi lembaga.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
