@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 03 JavaScript</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #2563eb);
+            color: white;
+            text-align: center;
+            padding: 40px 15px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            color: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #2563eb;
+        }
+
+        .card {
+            background: #eff6ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+        }
+
+        .hasil {
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 25px;
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Tugas 03 JavaScript</h1>
+        <p>Biodata Sederhana dan Mengubah Nilai Variabel</p>
+
+        <div class="card">
+            <h2>01. Biodata Siswa</h2>
+            <p id="nama"></p>
+            <p id="umur"></p>
+            <p id="status"></p>
+        </div>
+
+        <div class="card">
+            <h2>02. Nilai Ujian</h2>
+            <p id="nilaiAwal"></p>
+            <p id="nilaiBaru" class="hasil"></p>
+        </div>
+
+        <footer>
+            <p>Created by Muhammad Fahri Ibriz</p>
+            <p>PeTIK II Jombang - GEN 5</p>
+        </footer>
+    </div>
+
+    <script>
+        // 1. Membuat Biodata Sederhana
+
+        let nama = "Muhammad Fahri Ibriz";
+        let umur = 18;
+        let isSiswa = true;
+
+        // Menampilkan ke Console
+        console.log("=== BIODATA SISWA ===");
+        console.log("Nama: " + nama);
+        console.log("Umur: " + umur);
+        console.log("Status Siswa: " + isSiswa);
+
+        // Menampilkan ke halaman HTML
+        document.getElementById("nama").innerHTML =
+            "Nama: " + nama;
+
+        document.getElementById("umur").innerHTML =
+            "Umur: " + umur + " Tahun";
+
+        document.getElementById("status").innerHTML =
+            "Status Siswa: " + isSiswa;
+
+
+        // 2. Mengubah Nilai Variabel
+
+        let nilai = 70;
+
+        console.log("=== NILAI UJIAN ===");
+        console.log("Nilai Awal: " + nilai);
+
+        // Mengubah nilai tanpa menulis let lagi
+        nilai = 85;
+
+        console.log("Nilai Baru: " + nilai);
+
+        // Menampilkan ke halaman HTML
+        document.getElementById("nilaiAwal").innerHTML =
+            "Nilai Awal: 70";
+
+        document.getElementById("nilaiBaru").innerHTML =
+            "Nilai Baru: " + nilai;
+    </script>
+
+</body>
+</html>
