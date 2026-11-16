@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 06 JavaScript - Percabangan</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: white;
+            margin: 0;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00e5ff;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #ffffff;
+            color: #222;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px #0004;
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 7px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .hasil {
+            background: #e8f5e9;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 6px;
+            color: #155724;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>TUGAS 06 JAVASCRIPT</h1>
+    <p class="subtitle">Latihan Mandiri - Percabangan</p>
+
+    <!-- NOMOR 1 -->
+    <div class="card">
+        <h2>1. Cek Bilangan</h2>
+        <input type="number" id="angka1"
+            placeholder="Masukkan sebuah angka">
+
+        <button onclick="cekBilangan()">Periksa</button>
+        <div class="hasil" id="hasil1">Hasil akan muncul di sini</div>
+    </div>
+
+    <!-- NOMOR 2 -->
+    <div class="card">
+        <h2>2. Bilangan Terbesar dari Tiga Angka</h2>
+
+        <input type="number" id="a" placeholder="Angka pertama">
+        <input type="number" id="b" placeholder="Angka kedua">
+        <input type="number" id="c" placeholder="Angka ketiga">
+
+        <button onclick="cariTerbesar()">Cari Terbesar</button>
+        <div class="hasil" id="hasil2">Hasil akan muncul di sini</div>
+    </div>
+
+    <!-- NOMOR 3 -->
+    <div class="card">
+        <h2>3. Menentukan Predikat Nilai</h2>
+
+        <input type="number" id="nilai"
+            placeholder="Masukkan nilai (0-100)"
+            min="0" max="100">
+
+        <button onclick="cekNilai()">Cek Predikat</button>
+        <div class="hasil" id="hasil3">Predikat akan muncul di sini</div>
+    </div>
+
+    <!-- NOMOR 4 -->
+    <div class="card">
+        <h2>4. Menampilkan Nama Hari</h2>
+
+        <input type="number" id="hari"
+            placeholder="Masukkan angka 1-7"
+            min="1" max="7">
+
+        <button onclick="cekHari()">Tampilkan Hari</button>
+        <div class="hasil" id="hasil4">Nama hari akan muncul di sini</div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 | Tugas 06 JavaScript - PeTIK Jombang</p>
+</footer>
+
+<script>
+
+// NOMOR 1: CEK BILANGAN
+function cekBilangan() {
+    let angka = Number(document.getElementById("angka1").value);
+    let hasil = document.getElementById("hasil1");
+
+    if (document.getElementById("angka1").value === "") {
+        hasil.innerHTML = "Masukkan angka terlebih dahulu!";
+    } else if (angka > 0) {
+        hasil.innerHTML = angka + " adalah bilangan positif";
+    } else if (angka < 0) {
+        hasil.innerHTML = angka + " adalah bilangan negatif";
+    } else {
+        hasil.innerHTML = "Angka tersebut adalah nol";
+    }
+}
+
+// NOMOR 2: BILANGAN TERBESAR
+function cariTerbesar() {
+    let a = Number(document.getElementById("a").value);
+    let b = Number(document.getElementById("b").value);
+    let c = Number(document.getElementById("c").value);
+
+    let hasil = document.getElementById("hasil2");
+
+    if (
+        document.getElementById("a").value === "" ||
+        document.getElementById("b").value === "" ||
+        document.getElementById("c").value === ""
+    ) {
+        hasil.innerHTML = "Masukkan ketiga angka terlebih dahulu!";
+    } else if (a >= b && a >= c) {
+        hasil.innerHTML = "Bilangan terbesar adalah " + a;
+    } else if (b >= a && b >= c) {
+        hasil.innerHTML = "Bilangan terbesar adalah " + b;
+    } else {
+        hasil.innerHTML = "Bilangan terbesar adalah " + c;
+    }
+}
+
+// NOMOR 3: PREDIKAT NILAI
+function cekNilai() {
+    let nilai = Number(document.getElementById("nilai").value);
+    let hasil = document.getElementById("hasil3");
+
+    if (document.getElementById("nilai").value === "") {
+        hasil.innerHTML = "Masukkan nilai terlebih dahulu!";
+    } else if (nilai < 0 || nilai > 100) {
+        hasil.innerHTML = "Nilai harus antara 0 sampai 100!";
+    } else if (nilai >= 85) {
+        hasil.innerHTML = "Predikat A (Sangat Baik)";
+    } else if (nilai >= 75) {
+        hasil.innerHTML = "Predikat B (Baik)";
+    } else if (nilai >= 60) {
+        hasil.innerHTML = "Predikat C (Cukup)";
+    } else {
+        hasil.innerHTML = "Predikat D (Perlu Belajar Lagi)";
+    }
+}
+
+// NOMOR 4: NAMA HARI MENGGUNAKAN SWITCH
+function cekHari() {
+    let angka = Number(document.getElementById("hari").value);
+    let hasil = document.getElementById("hasil4");
+
+    let namaHari;
+
+    if (document.getElementById("hari").value === "") {
+        hasil.innerHTML = "Masukkan angka terlebih dahulu!";
+        return;
+    }
+
+    switch (angka) {
+        case 1:
+            namaHari = "Senin";
+            break;
+        case 2:
+            namaHari = "Selasa";
+            break;
+        case 3:
+            namaHari = "Rabu";
+            break;
+        case 4:
+            namaHari = "Kamis";
+            break;
+        case 5:
+            namaHari = "Jumat";
+            break;
+        case 6:
+            namaHari = "Sabtu";
+            break;
+        case 7:
+            namaHari = "Minggu";
+            break;
+        default:
+            namaHari = "Angka tidak valid! Masukkan angka 1-7.";
+    }
+
+    hasil.innerHTML = namaHari;
+}
+
+</script>
+
+</body>
+</html>
