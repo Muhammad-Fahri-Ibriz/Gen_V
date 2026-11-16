@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PeTIK Jombang – Pesantren Teknologi Informasi dan Komunikasi</title>
+<meta name="description" content="PeTIK Jombang: pesantren yang melahirkan santri dengan kemampuan IT.">
+<style>
+/* ===== Variabel & reset ===== */
+:root{
+  --primary:#0b6b4f;      /* SESUAIKAN: warna utama (ikuti identitas resmi) */
+  --primary-dark:#07493a;
+  --accent:#f2a900;       /* SESUAIKAN: warna aksen */
+  --bg:#f4f7f6;
+  --card:#ffffff;
+  --text:#1f2a28;
+  --muted:#5d6b68;
+  --radius:14px;
+  --shadow:0 4px 18px rgba(0,0,0,.08);
+  --shadow-hover:0 10px 28px rgba(0,0,0,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+a{color:var(--primary);text-decoration:none;transition:color .25s}
+a:hover{color:var(--accent)}
+img{max-width:100%;display:block}
+ul{list-style:none}
+
+/* ===== Penanda bagian yang perlu disesuaikan ===== */
+.ph{background:#fff3b0;border:1px dashed #c79100;border-radius:6px;padding:1px 7px;font-size:.88em;color:#5b4300}
+
+/* ===== Animasi ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(242,169,0,.6)}70%{box-shadow:0 0 0 14px rgba(242,169,0,0)}100%{box-shadow:0 0 0 0 rgba(242,169,0,0)}}
+.anim{opacity:0;animation:fadeUp .8s ease forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}
+
+/* ===== Header & navigasi ===== */
+header{position:sticky;top:0;z-index:50;background:var(--primary);color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.2);animation:fadeIn .6s ease}
+.header-in{max-width:1280px;margin:auto;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:1.15rem}
+.brand:hover{color:var(--accent)}
+.brand img{height:42px;width:auto;transition:transform .4s}
+.brand:hover img{transform:rotate(-6deg) scale(1.06)}
+nav ul{display:flex;gap:4px;flex-wrap:wrap}
+nav a{display:block;color:#fff;padding:8px 13px;border-radius:8px;font-size:.93rem;position:relative;transition:background .25s}
+nav a::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+nav a:hover{background:rgba(255,255,255,.12);color:#fff}
+nav a:hover::after{transform:scaleX(1)}
+#menu-toggle{display:none}
+.burger{display:none;cursor:pointer;font-size:1.7rem;line-height:1;user-select:none}
+
+/* ===== Hero ===== */
+.hero{background:linear-gradient(135deg,var(--primary-dark),var(--primary) 60%,#12936d);color:#fff;text-align:center;padding:64px 20px 72px;position:relative;overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.07);animation:float 7s ease-in-out infinite}
+.hero::before{width:260px;height:260px;top:-80px;left:-60px}
+.hero::after{width:180px;height:180px;bottom:-60px;right:8%;animation-delay:2s}
+.hero h1{font-size:clamp(1.8rem,4.5vw,3rem);margin-bottom:10px;position:relative}
+.hero p{font-size:clamp(1rem,2.2vw,1.25rem);opacity:.95;margin-bottom:26px;position:relative}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
+.btn{display:inline-block;padding:12px 24px;border-radius:999px;font-weight:600;border:2px solid transparent;transition:transform .25s,box-shadow .25s,background .25s,color .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+.btn-primary{background:var(--accent);color:#2b1f00;animation:pulse 2.4s infinite}
+.btn-primary:hover{color:#2b1f00;background:#ffc02e}
+.btn-ghost{border-color:#fff;color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--primary)}
+
+/* ===== Layout 3 kolom ===== */
+.layout{max-width:1280px;margin:30px auto;padding:0 18px;display:grid;grid-template-columns:240px minmax(0,1fr) 270px;gap:22px;align-items:start}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;transition:transform .3s,box-shadow .3s}
+.card:hover{box-shadow:var(--shadow-hover)}
+aside .card{margin-bottom:20px}
+aside h3{font-size:1.02rem;color:var(--primary);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--accent)}
+aside li a{display:block;padding:8px 10px;border-radius:8px;transition:background .25s,padding-left .25s}
+aside li a:hover{background:#e7f3ee;padding-left:16px}
+.side-left{position:sticky;top:78px}
+.side-right p{font-size:.92rem;margin-bottom:8px;word-break:break-word}
+.cta-box{background:linear-gradient(135deg,var(--primary),#12936d);color:#fff}
+.cta-box h3{color:#fff;border-color:var(--accent)}
+.cta-box a.btn{margin-top:6px;width:100%;text-align:center}
+
+/* ===== Konten utama ===== */
+main section{margin-bottom:26px}
+main h2{font-size:1.5rem;color:var(--primary);margin-bottom:12px;position:relative;padding-left:14px}
+main h2::before{content:"";position:absolute;left:0;top:.2em;bottom:.2em;width:5px;border-radius:4px;background:var(--accent)}
+main p{margin-bottom:10px;color:var(--text)}
+
+/* Grid keunggulan */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:14px}
+.feature{background:#f8fbfa;border:1px solid #e1ece8;border-radius:12px;padding:16px;transition:transform .3s,box-shadow .3s,border-color .3s,background .3s}
+.feature:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover);border-color:var(--accent);background:#fff}
+.feature .num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;font-size:.9rem;margin-bottom:8px;transition:transform .3s,background .3s}
+.feature:hover .num{transform:rotate(360deg) scale(1.1);background:var(--accent);color:#2b1f00}
+.feature h4{font-size:.98rem;margin-bottom:4px;color:var(--primary-dark)}
+.feature p{font-size:.88rem;color:var(--muted);margin:0}
+
+/* Program pembelajaran */
+.program-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:14px}
+.program{border-radius:12px;padding:20px;color:#fff;transition:transform .3s,box-shadow .3s}
+.program:hover{transform:translateY(-6px) scale(1.015);box-shadow:var(--shadow-hover)}
+.program.p1{background:linear-gradient(135deg,#0b6b4f,#12936d)}
+.program.p2{background:linear-gradient(135deg,#1c5d8f,#2f86c9)}
+.program.p3{background:linear-gradient(135deg,#8a5a00,#d99200)}
+.program h4{font-size:1.1rem;margin-bottom:6px}
+.program p{color:#fff;opacity:.95;font-size:.92rem;margin:0}
+.timeline{margin-top:16px;border-left:3px solid var(--accent);padding-left:16px}
+.timeline li{margin-bottom:8px;position:relative;font-size:.94rem}
+.timeline li::before{content:"";position:absolute;left:-23px;top:.5em;width:11px;height:11px;border-radius:50%;background:var(--primary);border:2px solid #fff;transition:transform .3s}
+.timeline li:hover::before{transform:scale(1.5)}
+
+/* Galeri */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:12px}
+.gallery img{width:100%;height:130px;object-fit:cover;border-radius:10px;background:#dfe9e5;transition:transform .35s,box-shadow .35s}
+.gallery img:hover{transform:scale(1.05);box-shadow:var(--shadow-hover)}
+
+/* ===== Footer ===== */
+footer{background:var(--primary-dark);color:#dcebe6;margin-top:40px}
+.footer-in{max-width:1280px;margin:auto;padding:30px 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+footer h4{color:#fff;margin-bottom:8px}
+footer a{color:#ffd56b}
+footer a:hover{color:#fff}
+footer p{font-size:.92rem}
+.copy{text-align:center;padding:14px 18px;border-top:1px solid rgba(255,255,255,.15);font-size:.88rem}
+
+/* ===== Responsif ===== */
+@media (max-width:1050px){
+  .layout{grid-template-columns:220px minmax(0,1fr)}
+  .side-right{grid-column:1 / -1;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .side-right .card{margin-bottom:0}
+}
+@media (max-width:760px){
+  .burger{display:block}
+  nav{position:absolute;top:100%;left:0;right:0;background:var(--primary-dark);max-height:0;overflow:hidden;transition:max-height .4s ease}
+  nav ul{flex-direction:column;padding:8px 14px}
+  #menu-toggle:checked ~ nav{max-height:480px}
+  .layout{grid-template-columns:1fr}
+  .side-left{position:static;order:2}
+  main{order:1}
+  .side-right{order:3}
+  .hero{padding:48px 16px 54px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .anim{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER + NAVIGASI ================= -->
+<header>
+  <div class="header-in">
+    <a class="brand" href="#beranda">
+      <!-- SESUAIKAN: ganti dengan file logo resmi PeTIK (mis. logo.png di folder yang sama) -->
+      <img src="https://webpetik.petikjombang.com/static/images/logo.png" alt="Logo PeTIK Jombang">
+      PeTIK Jombang
+    </a>
+    <input type="checkbox" id="menu-toggle" aria-label="Buka menu">
+    <label class="burger" for="menu-toggle">☰</label>
+    <nav aria-label="Navigasi utama">
+      <ul>
+        <li><a href="#beranda">Home</a></li>
+        <li><a href="#profil">Profil</a></li>
+        <li><a href="#program">Program</a></li>
+        <li><a href="https://webpetik.petikjombang.com/partnership">Kerjasama</a></li>
+        <li><a href="https://webpetik.petikjombang.com/artikel">Berita</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="beranda">
+  <h1 class="anim d1">Welcome to PeTIK Jombang</h1>
+  <p class="anim d2">Pesantren yang Melahirkan Santri dengan Kemampuan IT</p>
+  <div class="btns anim d3">
+    <!-- SESUAIKAN: pastikan tautan pendaftaran masih berlaku -->
+    <a class="btn btn-primary" href="https://pmb.petikjombang.com/">Pendaftaran Mahasantri Baru</a>
+    <a class="btn btn-ghost" href="https://www.google.com/maps?q=PeTIK%20II%20Jombang">Lihat Lokasi</a>
+    <a class="btn btn-ghost" href="https://wa.me/6281393963363">Hubungi via WhatsApp</a>
+  </div>
+</section>
+
+<!-- ================= LAYOUT 3 KOLOM ================= -->
+<div class="layout">
+
+  <!-- Sidebar kiri -->
+  <aside class="side-left">
+    <div class="card anim d2">
+      <h3>Tautan Cepat</h3>
+      <ul>
+        <li><a href="#profil">Profil PeTIK</a></li>
+        <li><a href="#keunggulan">9 Keunggulan</a></li>
+        <li><a href="#program">Program Pembelajaran</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="https://webpetik.petikjombang.com/sebaran_santri">Dashboard Sebaran Santri</a></li>
+        <li><a href="https://webpetik.petikjombang.com/dashboard-magang">Dashboard Magang 2025</a></li>
+        <li><a href="https://webpetik.petikjombang.com/form-test-minat">Tes Minat Bakat IT</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Konten utama -->
+  <main>
+    <section class="card anim d2" id="profil">
+      <h2>Tentang PeTIK Jombang</h2>
+      <p>PeTIK Jombang adalah Pesantren Teknologi Informasi dan Komunikasi Jombang YBM PLN, sebuah pesantren yang melahirkan santri dengan kemampuan IT.</p>
+      <p>Pendidikan difokuskan pada keterampilan digital (Digital Marketing dan Pengembangan Perangkat Lunak), dengan pembinaan karakter melalui pembekalan diniyah ahlus sunnah wal jamaah serta tahfidz Quran.</p>
+      <p><span></span>PeTIK Jombang bertujuan untuk mencetak generasi muda yang terampil di bidang Teknologi Informasi dan Komunikasi (TIK) dengan karakter yang kuat dan berakhlakul karimah. Kami percaya bahwa kemajuan ilmu pengetahuan harus seiring sejalan dengan pembentukan karakter yang mengedepankan nilai-nilai moral dan agama dalam menyukseskan program M2M (Mustahik to Muzakki).</span></p>
+    </section>
+
+    <section class="card anim d3" id="keunggulan">
+      <h2>9 Keunggulan PeTIK Jombang</h2>
+      <div class="grid">
+        <div class="feature"><span class="num">1</span><h4>Gratis Biaya Pendidikan</h4><p>Pendidikan tanpa biaya untuk santri dari keluarga dhuafa.</p></div>
+        <div class="feature"><span class="num">2</span><h4>Fasilitas IT &amp; Boarding Terbaik</h4><p>Fasilitas lengkap dan laboratorium komputer berkelas terbaik.</p></div>
+        <div class="feature"><span class="num">3</span><h4>Uang Saku Selama Pendidikan</h4><p>Santri mendapat uang saku selama masa pendidikan (1 tahun).</p></div>
+        <div class="feature"><span class="num">4</span><h4>Fokus IT</h4><p>Digital Marketing dan Pengembangan Perangkat Lunak.</p></div>
+        <div class="feature"><span class="num">5</span><h4>Bonus Sertifikasi + Tahfidz</h4><p>Pelatihan sertifikasi industri serta tahfidz Quran.</p></div>
+        <div class="feature"><span class="num">6</span><h4>Satu Tahun Siap Kerja</h4><p>Dipersiapkan langsung bekerja dengan kemampuan yang relevan di industri.</p></div>
+        <div class="feature"><span class="num">7</span><h4>Gratis Pemberangkatan &amp; Kepulangan</h4><p>Pembiayaan pemberangkatan dan kepulangan ditanggung.</p></div>
+        <div class="feature"><span class="num">8</span><h4>Pembinaan Karakter</h4><p>Pembekalan diniyah ahlus sunnah wal jamaah untuk akhlak mulia.</p></div>
+        <div class="feature"><span class="num">9</span><h4>Kerjasama Industri &amp; Pendidikan</h4><p>Kerjasama dengan mitra unggulan untuk menunjang karir santri.</p></div>
+      </div>
+    </section>
+
+    <section class="card anim d4" id="program">
+      <h2>Program Pembelajaran</h2>
+      <p>Berikut ringkasan program berdasarkan informasi pada situs PeTIK Jombang saat ini.</p>
+      <div class="program-grid">
+        <div class="program p1">
+          <h4>Digital Marketing</h4>
+          <p>Fokus keterampilan digital untuk dunia kerja. <span class="ph">SESUAIKAN: materi &amp; silabus</span></p>
+        </div>
+        <div class="program p2">
+          <h4>Pengembangan Perangkat Lunak</h4>
+          <p>Fokus keterampilan digital untuk dunia kerja. <span class="ph">SESUAIKAN: materi &amp; silabus</span></p>
+        </div>
+        <div class="program p3">
+          <h4>Pembinaan Karakter &amp; Tahfidz</h4>
+          <p>Pembekalan diniyah ahlus sunnah wal jamaah dan tahfidz Quran.</p>
+        </div>
+      </div>
+      <ul class="timeline">
+        <li><strong>Masa pendidikan:</strong> 1 tahun, dengan uang saku selama pendidikan.</li>
+        <li><strong>Pelatihan sertifikasi:</strong> sertifikasi industri sebagai bonus. <span class="ph">SESUAIKAN: daftar sertifikasi</span></li>
+        <li><strong>Jalur karir:</strong> persiapan siap kerja bersama mitra industri.</li>
+        <li><span class="ph">SESUAIKAN: jadwal, syarat, dan alur seleksi (belum ada pada data yang diberikan)</span></li>
+      </ul>
+      <div class="btns" style="justify-content:flex-start;margin-top:18px">
+        <a class="btn btn-primary" href="https://pmb.petikjombang.com/">Daftar Sekarang</a>
+      </div>
+    </section>
+
+    <section class="card anim d4" id="galeri">
+      <h2>Galeri</h2>
+      <div class="gallery">
+        <!-- SESUAIKAN: ganti dengan foto kegiatan resmi -->
+        <img src="https://webpetik.petikjombang.com/static/images/1.jpg" alt="Kegiatan PeTIK Jombang 1" loading="lazy">
+        <img src="https://webpetik.petikjombang.com/static/images/2.jpg" alt="Kegiatan PeTIK Jombang 2" loading="lazy">
+        <img src="https://webpetik.petikjombang.com/static/images/3.jpg" alt="Kegiatan PeTIK Jombang 3" loading="lazy">
+      </div>
+    </section>
+  </main>
+
+  <!-- Sidebar kanan -->
+  <aside class="side-right">
+    <div class="card cta-box anim d3">
+      <h3>Pendaftaran</h3>
+      <p>Mahasantri baru PeTIK Jombang.</p>
+      <a class="btn btn-primary" href="https://pmb.petikjombang.com/">Daftar Sekarang</a>
+    </div>
+    <div class="card anim d3" id="kontak">
+      <h3>Kontak</h3>
+      <p><strong>Alamat:</strong><br>Pesantren Teknologi Informasi dan Komunikasi Jombang YBM PLN, Jl. KH. Bisri Syansuri, RT.001/RW.005, Plosogeneng, Kec. Jombang, Kabupaten Jombang, Jawa Timur 61416</p>
+      <p><strong>WhatsApp Admin:</strong> <a href="https://wa.me/6281393963363">+62 813-9396-3363</a></p>
+      <p><strong>Email:</strong> <a href="mailto:petikjombang@gmail.com">petikjombang@gmail.com</a></p>
+      <p><span class="ph">SESUAIKAN: verifikasi ulang kontak sebelum publikasi</span></p>
+    </div>
+    <div class="card anim d4">
+      <h3>Media Sosial</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/petik_jombang">Instagram @petik_jombang</a></li>
+        <li><a href="https://www.youtube.com/@tvpetikjombang">YouTube @tvpetikjombang</a></li>
+        <li><a href="https://www.facebook.com/petikIIjombang">Facebook Petik Jombang</a></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-in">
+    <div>
+      <h4>PeTIK Jombang</h4>
+      <p>Pesantren yang Melahirkan Santri dengan Kemampuan IT.</p>
+      <!-- SESUAIKAN: logo resmi PeTIK Jombang &amp; YBM PLN -->
+      <img src="https://webpetik.petikjombang.com/static/images/logo2.png" alt="Logo PeTIK Jombang &amp; YBM PLN" style="height:48px;margin-top:10px;width:auto">
+    </div>
+    <div>
+      <h4>Kontak</h4>
+      <p>WhatsApp: <a href="https://wa.me/6281393963363">+62 813-9396-3363</a></p>
+      <p>Email: <a href="mailto:petikjombang@gmail.com">petikjombang@gmail.com</a></p>
+    </div>
+    <div>
+      <h4>Kredit</h4>
+      <p>Konten: PeTIK Jombang (sumber: webpetik.petikjombang.com).</p>
+      <p>Desain ulang halaman: <span class="ph">SESUAIKAN: nama pembuat/tim</span></p>
+    </div>
+  </div>
+  <div class="copy">
+    © 2025 PeTIK Jombang <span class="ph">SESUAIKAN: tahun/pemilik hak cipta</span> |
+    <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+    <!-- SESUAIKAN: isi tautan Privacy Policy &amp; Terms of Use -->
+  </div>
+</footer>
+
+</body>
+</html>
