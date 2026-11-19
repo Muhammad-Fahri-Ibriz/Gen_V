@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Mandiri JavaScript</title>
+</head>
+<body>
+
+    <h1>Latihan Mandiri JavaScript</h1>
+    <p>Buka Console Browser dengan menekan F12.</p>
+
+    <script>
+        // 1. Array 5 Nama dengan for...of
+        let nama = ["Fahri", "Fariz", "Qois", "Nasrul", "Sohib"];
+
+        console.log("=== DAFTAR NAMA ===");
+
+        for (let orang of nama) {
+            console.log(orang);
+        }
+
+        // 2. Object Buku
+        let buku = {
+            judul: "Belajar JavaScript",
+            penulis: "Muhammad Fahri",
+            harga: 25000
+        };
+
+        console.log("=== DATA BUKU ===");
+        console.log(buku);
+
+        // 3. Filter Buku di Atas 20000
+        let daftarBuku = [
+            { judul: "HTML Dasar", penulis: "Andi", harga: 15000 },
+            { judul: "JavaScript", penulis: "Budi", harga: 25000 },
+            { judul: "CSS Dasar", penulis: "Citra", harga: 18000 },
+            { judul: "Python", penulis: "Doni", harga: 35000 },
+            { judul: "PHP Dasar", penulis: "Eko", harga: 30000 }
+        ];
+
+        let bukuMahal = daftarBuku.filter(
+            buku => buku.harga > 20000
+        );
+
+        console.log("=== BUKU DI ATAS 20000 ===");
+        console.log(bukuMahal);
+    </script>
+
+</body>
+</html>
